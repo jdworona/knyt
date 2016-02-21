@@ -26,6 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2 class="page-title">{{greeting}}</h2>
     <span>Update text to change the greeting.</span>
+    <span>{{textt}}</span>
     <!-- Listens for "input" event and sets greeting to <input>.value -->
     <input value="{{greeting::input}}">
   </template>
@@ -42,7 +43,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             type: String,
             value: 'Welcome!',
             notify: true
+          },
+          textt:{
+            type: String,
+            value: 'testt text',
+            notify: true
           }
+
         }
       });
     })();

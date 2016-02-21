@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit">
-  <title>Polymer Starter Kit</title>
+  <title>knyt</title>
 
   <!-- Place favicon.ico in the `app/` directory -->
 
@@ -54,6 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Because this project uses vulcanize this should be your only html import
        in this file. All other imports should go in elements.html -->
   <link rel="import" href="elements/elements.html">
+  <link rel="import" href="../color.html">
 
   <!-- For shared styles, shared-styles.html import in elements.html -->
   <style is="custom-style" include="shared-styles"></style>
@@ -74,25 +75,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="{{baseUrl}}">
-            <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
+          <a data-route="ideas" href="{{baseUrl}}">
+            <iron-icon icon="lightbulb-outline"></iron-icon>
+            <span>Ideas</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
+          <a data-route="problems" href="{{baseUrl}}problems">
+            <iron-icon icon="flight-land"></iron-icon>
+            <span>Problems</span>
+          </a>
+
+          <a data-route="solutions" href="{{baseUrl}}solutions">
+            <iron-icon icon="build"></iron-icon>
+            <span>Solutions</span>
+          </a>
+          <a data-route="about" href="{{baseUrl}}about">
             <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
+            <span>About</span>
           </a>
 
-          <a data-route="contact" href="{{baseUrl}}contact">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
-          </a>
 
-          <a data-route="books" href="/books">
-            <iron-icon icon="book"></iron-icon>
-            <span>Books</span>
-          </a>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -105,24 +107,59 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <span class="space"></span>
 
           <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="account-circle"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">Polymer Starter Kit</div>
+            <div class="app-name">knyt</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future of the web today</div>
+            <div class="bottom-title">Fixing the world, one problem at a time.</div>
           </div>
         </paper-toolbar>
 
         <!-- Main Content -->
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
-            <section data-route="home">
+            <section data-route="ideas">
+            <paper-material elevation="2">
+              <my-idea></my-idea>
+              </paper-material>
+              <paper-material elevation="2">
+              <div class="paper-font-title">Regenerative Air Conditioning</div>
+              <div class="paper-font-caption">Jon Doe</div>
+              <div class="paper-font-subhead">Why can't we use the heat taken from a house for AC to power the AC? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+              
+                <paper-icon-button icon="thumb-up"></paper-icon-button>
+                <paper-icon-button icon="thumb-down"></paper-icon-button>
+                <span class="paper-font-caption">12.6 K Upvotes <a href="">Comments</a>
+                </span>
+              </paper-material>
+              <paper-material elevation="2">
+              <div class="paper-font-title">Slow low power clothing dryer</div>
+              <div class="paper-font-caption">Happy Gilmore</div>
+              <div class="paper-font-subhead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+              
+                <paper-icon-button icon="thumb-up"></paper-icon-button>
+                <paper-icon-button icon="thumb-down"></paper-icon-button>
+                <span class="paper-font-caption">2.6 K Upvotes <a href="">Comments</a>
+                </span>
+              </paper-material>
+              </paper-material>
+              <paper-material elevation="2">
+              <div class="paper-font-title">Small depth fridge for decreased food spoilage</div>
+              <div class="paper-font-caption">Ellen Snopft</div>
+              <div class="paper-font-subhead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+              
+                <paper-icon-button icon="thumb-up"></paper-icon-button>
+                <paper-icon-button icon="thumb-down"></paper-icon-button>
+                <span class="paper-font-caption">600 Upvotes <a href="">Comments</a>
+                </span>
+              </paper-material>
+              <!-- 
               <paper-material elevation="1">
                 <my-greeting></my-greeting>
 
@@ -134,6 +171,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <paper-material elevation="1">
                 <p>This is another card.</p>
+                <section class="redlines paragraph">
+                  <div class="paper-font-display4">Display 4</div>
+                  <div class="paper-font-display3">Display 3</div>
+                  <div class="paper-font-display2">Display 2</div>
+                  <div class="paper-font-display1">Display 1</div>
+                  <div class="paper-font-headline">Headline</div>
+                  <div class="paper-font-title">Title</div>
+                  <div class="paper-font-subhead">Subhead</div>
+                  <div class="paper-font-body2">Body 2</div>
+                  <div class="paper-font-body1">Body 1</div>
+                  <div class="paper-font-caption">Caption</div>
+                  <div class="paper-font-menu">Menu</div>
+                  <div class="paper-font-button">Button</div>
+                </section>
               </paper-material>
 
               <paper-material elevation="1">
@@ -153,33 +204,103 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 this software without specific prior written permission.</li>
                 </ul>
                 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
+              </paper-material> -->
             </section>
 
-            <section data-route="users">
-              <paper-material elevation="1">
+            <section data-route="problems">
+            <paper-material elevation="2">
+              <div class="paper-font-title">Over-Logging of Amazon Rainforest</div>
+              <div class="paper-font-caption">Jon Doe</div>
+              <div class="paper-font-subhead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+              
+                <paper-icon-button icon="thumb-up"></paper-icon-button>
+                <paper-icon-button icon="thumb-down"></paper-icon-button>
+                <span class="paper-font-caption">12.6 K Upvotes <a href="">Comments</a>
+                </span>
+              </paper-material>
+              <paper-material elevation="2">
+              <div class="paper-font-title">Waste of deformed vegetables</div>
+              <div class="paper-font-caption">Happy Gilmore</div>
+              <div class="paper-font-subhead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+              
+                <paper-icon-button icon="thumb-up"></paper-icon-button>
+                <paper-icon-button icon="thumb-down"></paper-icon-button>
+                <span class="paper-font-caption">2.6 K Upvotes <a href="">Comments</a>
+                </span>
+              </paper-material>
+              </paper-material>
+              <paper-material elevation="2">
+              <a class="paper-font-title" href="{{baseUrl}}problems/Corals dying">Corals dying</a>
+              <div class="paper-font-caption">Ellen Snopft</div>
+              <div class="paper-font-subhead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+              
+                <paper-icon-button icon="thumb-up"></paper-icon-button>
+                <paper-icon-button icon="thumb-down"></paper-icon-button>
+                <span class="paper-font-caption">600 Upvotes <a href="">Comments</a>
+                </span>
+              </paper-material>
+              <paper-material elevation="2">
                 <h2 class="page-title">Users</h2>
                 <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                <a href$="{{baseUrl}}problems/Addy">Addy</a><br>
+                <a href$="{{baseUrl}}problems/Rob">Rob</a><br>
+                <a href$="{{baseUrl}}problems/Chuck">Chuck</a><br>
+                <a href$="{{baseUrl}}problems/Sam">Sam</a>
               </paper-material>
             </section>
 
-            <section data-route="user-info">
-              <paper-material elevation="1">
+            <section data-route="problem-info">
+              <paper-material elevation="2">
                 <h2 class="page-title">User: {{params.name}}</h2>
                 <div>This is {{params.name}}'s section</div>
               </paper-material>
             </section>
 
-            <section data-route="contact">
-              <paper-material elevation="1">
-                <h2 class="page-title">Contact</h2>
-                <p>This is the contact section</p>
+            <section data-route="user-info">
+              <paper-material elevation="2">
+                <h2 class="page-title">{{params.name}}</h2>
+                <div>This is {{params.name}}'s section</div>
               </paper-material>
             </section>
+
+            <section data-route="solutions">
+              <paper-card heading="Emmental">
+                <div class="card-content">
+                  Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+                </div>
+                <div class="card-actions">
+                  <paper-button>Share</paper-button>
+                  <paper-button>Explore!</paper-button>
+                </div>
+              </paper-card>
+            </section>
+            <section data-route="about">
+              <paper-material elevation="2">
+                <h2 class="page-title">About</h2>
+                <div class="paper-font-subhead">Let's face it, the world has some serious problems facing it and it is apparently our job to fix 'em. Knyt is a non-for-profit, that enables people from all over the world to to contribute to a brighter, greener and clearer future. Knyt is a platform for the developemt of of real world solutions. In addition to the platform itself, we provide a management team commited to moving projects forward and depending on the solution, funding may also be available. </div><br>
+                <div class="paper-font-title">How does it work?</div>
+                <div class="paper-font-subhead">You post your idea either on it's own or a a means to fix a problem. Your internet peers vote and make comments on it. If the idea has enough social backing, then it turns into a solution. Solutions are full fledged projects with the aim for market. Solutions are funded and also steered in the right direction by either in-house mentor or one of you smart people.</div><br>
+                <div class="paper-font-title">Do I get anything for my ideas?</div>
+                <div class="paper-font-subhead">Yes! Even if you just post an idea and never contribute to it turning into a solution or a product, you automatically get 1% equity in it. And if you contibute to the project you get more and more.</div><br>
+                <div class="paper-font-title">Do I get anything for my contributions?</div>
+                <div class="paper-font-subhead"> Yes! All your work on a project gets logged and at the end of the project the equity gets divided up according to your contribution. In addition to this, some solutions which are funded will have key tasks which have upfront re-imbursement schemes.</div><br>
+                <div class="paper-font-title">Why should I provide my help?</div>
+                <div class="paper-font-subhead">Aside from the joy you get from contributing to a brighter future, you get experience. Everyone has a passion but sometime the field you want to work in isn't hiring or requires years and a large portfolio of experience. In this community it doesnt matter that you've never written copy, done professional graphic design, organised rallies, developed a working prototype, etc. You can work on anything you want to in this space and no one is stopping you. Feed your passion. </div><br>
+
+                
+                <div layout center-center>
+                <google-youtube
+                  video-id="..."
+                  height="270px"
+                  width="480px"
+                  rel="0"
+                  start="5"
+                  autoplay="1">
+                </google-youtube>
+                </div>
+              </paper-material>
+            </section>
+
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
