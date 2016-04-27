@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+
+
+<dom-module id="my-ideas">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+    </style>
+                <template  is="dom-bind">
+                <firebase-collection
+                        order-by-child="upvotes"
+                        limit-to-first="2"
+                        location="https://popping-fire-1365.firebaseio.com/ideas"
+                        data="{{ideas}}"></firebase-collection>
+                <template is="dom-repeat" items="[[ideas]]" as="idea">
+                <my-idea idea-title="[[idea.__firebaseKey__]]" user-name= "[[idea.user]]" idea-description="[[idea.idea]]" idea-upvotes="[[idea.upvotes]]"></my-idea>
+                </template>
+                </template>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'my-ideas',
+        ready: function() {
+          this.ideas = [
+                {user:"John Doe", title:"Test Idea" ,idea:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", upvotes:12.6},
+                {user:"John Doe1", title:"Test Idea1" ,idea:"1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", upvotes:12.2}
+                
+                ];}
+      });
+    })();
+  </script>
+</dom-module>

@@ -1,22 +1,57 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
 
+
+
 <dom-module id="my-idea">
+  
   <template>
-    <style include="shared-styles">
+    <style is="custom-style" include="shared-styles">
       :host {
         display: block;
       }
-    </style>
+      paper-material {
+    border-radius: 2px;
+    height: 100%;
+    padding: 16px 0 16px 0;
+    width: calc(98.66% - 16px);
+    margin: 16px auto;
+    background: white;
+  }
+   @media (max-width: 600px) {
 
-      
+    paper-material {
+      --menu-container-display: none;
+      width: calc(97.33% - 32px);
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+  }
+  @media (min-width: 601px) {
+
+    paper-material {
+      width: calc(98% - 46px);
+      margin-bottom: 5px;
+
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+  }
+    </style>
+    
+
+      <paper-material elevation="2">
       <div class="paper-font-title">{{ideaTitle}}</div>
       <div class="paper-font-caption">{{userName}}</div>
       <div class="paper-font-subhead">{{ideaDescription}}</div>
-      <paper-icon-button icon="thumb-up"></paper-icon-button>
-      <paper-icon-button icon="thumb-down"></paper-icon-button>
+      <paper-icon-button on-click="handleClick" icon="thumb-up" toggles raised></paper-icon-button>
+      <paper-icon-button icon="thumb-down" toggles></paper-icon-button>
       <span class="paper-font-caption">{{ideaUpvotes}} K Upvotes <a href="">Comments</a>
       </span>
+      </paper-material>
+
     
   </template>
 
@@ -30,24 +65,23 @@
         properties: {
           ideaTitle: {
             type: String,
-            value: 'Regenerative Air Conditioning',
             notify: true
           },
           userName:{
             type: String,
-            value: 'Jon Doe',
             notify: true
           },
           ideaDescription:{
             type: String,
-            value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
             notify: true
           },
           ideaUpvotes:{
             type: Number,
-            value: 12.6,
             notify: true
           },
+          handleClick: function(){
+            alert('ow!');
+          }
         }
       });
     })();

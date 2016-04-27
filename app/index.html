@@ -102,13 +102,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar" class="tall">
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+          <!-- <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle>kjfhsakjf</paper-icon-button> -->
 
           <span class="space"></span>
 
           <!-- Toolbar icons -->
-          <paper-icon-button icon="account-circle"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
+          <section onclick="clickHandler(event)">
+          <paper-icon-button icon="account-circle" data-dialog="sign-in"></paper-icon-button>
+            <paper-dialog id="sign-in">
+                <h2>Sign In</h2>
+                
+                <paper-input id="tIdeaTitle" label="First"></paper-input>
+                <paper-input id="tIdeaTitle" label="Last"></paper-input>
+                
+            </paper-dialog>
+          </section>
+          <script type="text/javascript">
+            function clickHandler(e) {
+                var button = e.target;
+                while (!button.hasAttribute('data-dialog') && button !== document.body) {
+                  button = button.parentElement;
+                }
+                if (!button.hasAttribute('data-dialog')) {
+                  return;
+                }
+                var id = button.getAttribute('data-dialog');
+                var dialog = document.getElementById(id);
+                if (dialog) {
+                  dialog.open();
+                }
+              }
+          </script>
+          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
 
           <!-- Application name -->
           <div class="middle middle-container">
@@ -125,40 +151,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="ideas">
-            <paper-material elevation="2">
-              <my-idea></my-idea>
+
+         <!--    <div id="ideaEntry"
+              <paper-material id="ideaEntry" elevation="2">
+                  <paper-input id="tIdeaTitle" label="Idea title"></paper-input>
+                  <paper-textarea id="tIdeaBody" label="Pitch your idea"></paper-textarea>
+                  <paper-fab icon="icons:add" on-tap="postTask"></paper-fab>
               </paper-material>
-              <paper-material elevation="2">
-              <div class="paper-font-title">Regenerative Air Conditioning</div>
-              <div class="paper-font-caption">Jon Doe</div>
-              <div class="paper-font-subhead">Why can't we use the heat taken from a house for AC to power the AC? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-              
-                <paper-icon-button icon="thumb-up"></paper-icon-button>
-                <paper-icon-button icon="thumb-down"></paper-icon-button>
-                <span class="paper-font-caption">12.6 K Upvotes <a href="">Comments</a>
-                </span>
-              </paper-material>
-              <paper-material elevation="2">
-              <div class="paper-font-title">Slow low power clothing dryer</div>
-              <div class="paper-font-caption">Happy Gilmore</div>
-              <div class="paper-font-subhead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-              
-                <paper-icon-button icon="thumb-up"></paper-icon-button>
-                <paper-icon-button icon="thumb-down"></paper-icon-button>
-                <span class="paper-font-caption">2.6 K Upvotes <a href="">Comments</a>
-                </span>
-              </paper-material>
-              </paper-material>
-              <paper-material elevation="2">
-              <div class="paper-font-title">Small depth fridge for decreased food spoilage</div>
-              <div class="paper-font-caption">Ellen Snopft</div>
-              <div class="paper-font-subhead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-              
-                <paper-icon-button icon="thumb-up"></paper-icon-button>
-                <paper-icon-button icon="thumb-down"></paper-icon-button>
-                <span class="paper-font-caption">600 Upvotes <a href="">Comments</a>
-                </span>
-              </paper-material>
+            </div> -->
+            <idea-form></idea-form>
+
+                  <my-ideas></my-ideas>
               <!-- 
               <paper-material elevation="1">
                 <my-greeting></my-greeting>

@@ -9,7 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 (function(document) {
   'use strict';
-
   // Grab a reference to our auto-binding template
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
@@ -67,6 +66,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // Scale middleContainer appName
     Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
+
+     var Firebase = require("firebase");
+  var myFirebaseRef = new Firebase("https://popping-fire-1365.firebaseio.com/");
+  myFirebaseRef.set({
+    title: "Hello World!",
+    author: "Firebase",
+    location: {
+      city: "San Francisco",
+      state: "California",
+      zip: 94103
+    }
+  });
   });
 
   // Scroll page to top and expand header
@@ -77,5 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   app.closeDrawer = function() {
     app.$.paperDrawerPanel.closeDrawer();
   };
+
+ 
 
 })(document);
